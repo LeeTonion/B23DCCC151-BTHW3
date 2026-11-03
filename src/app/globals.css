@@ -1,4 +1,4 @@
-/* src/app/globals.css */
+
 @import "tailwindcss";
 
 :root {
@@ -13,7 +13,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -31,7 +30,6 @@ html {
   background: #475569;
 }
 
-/* Loading animation */
 @keyframes shimmer {
   0% { background-position: -200px 0; }
   100% { background-position: calc(200px + 100%) 0; }

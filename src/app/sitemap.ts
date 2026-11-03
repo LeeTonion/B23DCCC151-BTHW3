@@ -1,4 +1,3 @@
-// src/app/sitemap.ts
 import { MetadataRoute } from "next";
 import { getDeadlines, getSubjects } from "@/lib/data";
 

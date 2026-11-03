@@ -1,4 +1,3 @@
-// src/components/AdminDeadlineForm.tsx
 "use client";
 
 import { useState, useTransition, useRef } from "react";
@@ -22,7 +21,6 @@ export default function AdminDeadlineForm({
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
-    // Set subject info based on selected subjectId
     const subjectId = formData.get("subjectId") as string;
     const subject = subjects.find((s) => s.id === subjectId);
     if (subject) {

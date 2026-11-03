@@ -1,4 +1,3 @@
-// src/app/layout.tsx - Root layout
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";

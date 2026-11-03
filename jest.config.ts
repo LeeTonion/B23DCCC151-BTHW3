@@ -1,4 +1,3 @@
-// jest.config.ts
 import type { Config } from "jest";
 
 const config: Config = {
@@ -7,15 +6,17 @@ const config: Config = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
-  testMatch: ["**/__tests__/**/*.test.ts", "**/__tests__/**/*.test.tsx"],
+  testMatch: ["<rootDir>/src/__tests__/**/*.test.ts"],
   transform: {
-    "^.+\\.tsx?$": ["ts-jest", {
-      tsconfig: {
-        module: "commonjs",
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        tsconfig: {
+          module: "commonjs",
+        },
       },
-    }],
+    ],
   },
 };
 
 export default config;
-

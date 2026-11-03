@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 "use client";
 
 import { useSession, signOut } from "next-auth/react";
@@ -29,7 +28,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          
           <Link href="/" className="flex items-center gap-2.5 group">
             <Image
               src="/ptit-logo.svg"
@@ -44,7 +43,6 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Nav */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -85,7 +83,6 @@ export default function Header() {
             )}
           </nav>
 
-          {/* Auth section */}
           <div className="flex items-center gap-3">
             {session?.user ? (
               <div className="flex items-center gap-2">

@@ -1,4 +1,3 @@
-// src/app/(app)/dashboard/page.tsx - SSR
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getDeadlines } from "@/lib/data";
@@ -6,7 +5,6 @@ import DeadlineCard from "@/components/DeadlineCard";
 import Link from "next/link";
 import type { Metadata } from "next";
 
-// SSR: always render fresh (requires auth)
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -44,7 +42,7 @@ export default async function DashboardPage() {
 
   return (
     <div>
-      {/* Welcome */}
+      
       <div className="mb-8">
         <h1 className="text-2xl font-black text-white mb-1">
           Chào, {session.user.name}! 👋
@@ -55,7 +53,6 @@ export default async function DashboardPage() {
         </p>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {stats.map((stat) => (
           <div
@@ -71,7 +68,6 @@ export default async function DashboardPage() {
         ))}
       </div>
 
-      {/* Progress */}
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-8">
         <div className="flex justify-between items-center mb-3">
           <h2 className="text-sm font-bold text-white">Tiến độ hoàn thành</h2>
@@ -95,7 +91,6 @@ export default async function DashboardPage() {
         </p>
       </div>
 
-      {/* Overdue alerts */}
       {overdue.length > 0 && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-6">
           <h2 className="text-red-400 font-bold mb-3 flex items-center gap-2">
@@ -124,7 +119,6 @@ export default async function DashboardPage() {
         </div>
       )}
 
-      {/* Pending deadlines */}
       {pending.length > 0 && (
         <div>
           <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">

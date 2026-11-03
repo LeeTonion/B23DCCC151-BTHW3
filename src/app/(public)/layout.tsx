@@ -1,4 +1,3 @@
-// src/app/(public)/layout.tsx
 import SessionProvider from "@/components/SessionProvider";
 import Header from "@/components/Header";
 

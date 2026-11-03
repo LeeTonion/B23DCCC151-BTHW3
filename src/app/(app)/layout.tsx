@@ -1,4 +1,3 @@
-// src/app/(app)/layout.tsx - App layout for protected pages
 import { auth } from "@/lib/auth";
 import SessionProvider from "@/components/SessionProvider";
 import Header from "@/components/Header";

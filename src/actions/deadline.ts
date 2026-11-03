@@ -1,4 +1,3 @@
-// src/actions/deadline.ts
 "use server";
 
 import { revalidatePath, updateTag } from "next/cache";
@@ -37,7 +36,6 @@ export type ActionResult = {
 export async function addDeadlineAction(
   formData: FormData
 ): Promise<ActionResult> {
-  // 1. Check authentication & authorization (not just middleware)
   const session = await auth();
   if (!session?.user) {
     return { success: false, message: "Bạn chưa đăng nhập." };
@@ -48,7 +46,6 @@ export async function addDeadlineAction(
     return { success: false, message: "Bạn không có quyền thêm deadline." };
   }
 
-  // 2. Validate input
   const raw = {
     title: formData.get("title"),
     description: formData.get("description"),
@@ -67,15 +64,12 @@ export async function addDeadlineAction(
     return { success: false, message: messages };
   }
 
-  // 3. Add deadline
   try {
     const newDeadline = addDeadline(parsed.data);
 
-    // Revalidate ISR pages immediately
     try {
       updateTag("deadlines");
     } catch {
-      // ignore in test or unsupported env
     }
     revalidatePath("/deadlines");
 
@@ -90,7 +84,6 @@ export async function addDeadlineAction(
 }
 
 export async function deleteDeadlineAction(id: string): Promise<ActionResult> {
-  // 1. Check auth & permission
   const session = await auth();
   if (!session?.user) {
     return { success: false, message: "Bạn chưa đăng nhập." };
@@ -101,23 +94,19 @@ export async function deleteDeadlineAction(id: string): Promise<ActionResult> {
     return { success: false, message: "Bạn không có quyền xoá deadline." };
   }
 
-  // 2. Validate input
   if (!id || typeof id !== "string") {
     return { success: false, message: "ID deadline không hợp lệ." };
   }
 
-  // 3. Delete
   try {
     const deleted = deleteDeadline(id);
     if (!deleted) {
       return { success: false, message: "Deadline không tồn tại." };
     }
 
-    // Revalidate
     try {
       updateTag("deadlines");
     } catch {
-      // ignore
     }
     revalidatePath("/deadlines");
     revalidatePath(`/deadlines/${id}`);
@@ -131,7 +120,6 @@ export async function deleteDeadlineAction(id: string): Promise<ActionResult> {
 export async function markDoneAction(
   deadlineId: string
 ): Promise<ActionResult> {
-  // 1. Check auth & permission
   const session = await auth();
   if (!session?.user) {
     return { success: false, message: "Bạn chưa đăng nhập." };
@@ -142,12 +130,10 @@ export async function markDoneAction(
     return { success: false, message: "Bạn không có quyền đánh dấu deadline." };
   }
 
-  // 2. Validate
   if (!deadlineId || typeof deadlineId !== "string") {
     return { success: false, message: "ID deadline không hợp lệ." };
   }
 
-  // 3. Toggle
   try {
     const updated = toggleDeadlineComplete(deadlineId, session.user.id);
     if (!updated) {

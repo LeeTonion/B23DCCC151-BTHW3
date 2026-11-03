@@ -1,4 +1,3 @@
-// src/app/(app)/dashboard/subjects/page.tsx
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getSubjects, getDeadlines } from "@/lib/data";

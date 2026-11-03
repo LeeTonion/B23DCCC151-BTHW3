@@ -1,4 +1,3 @@
-// src/lib/data.ts
 import fs from "fs";
 import path from "path";
 import type { Subject, Deadline, User } from "./types";
@@ -16,7 +15,6 @@ function writeJSON<T>(filename: string, data: T): void {
   fs.writeFileSync(filepath, JSON.stringify(data, null, 2), "utf-8");
 }
 
-// Subjects
 export function getSubjects(): Subject[] {
   return readJSON<Subject[]>("subjects.json");
 }
@@ -25,7 +23,6 @@ export function getSubjectBySlug(slug: string): Subject | undefined {
   return getSubjects().find((s) => s.slug === slug);
 }
 
-// Deadlines
 export function getDeadlines(): Deadline[] {
   return readJSON<Deadline[]>("deadlines.json");
 }
@@ -81,7 +78,6 @@ export function toggleDeadlineComplete(
   return deadline;
 }
 
-// Users
 export function getUsers(): User[] {
   return readJSON<User[]>("users.json");
 }

@@ -1,11 +1,9 @@
-// src/app/(public)/page.tsx - Homepage (SSG)
 import { getDeadlines, getSubjects } from "@/lib/data";
 import DeadlineCard from "@/components/DeadlineCard";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 
-// SSG: Fully static build for maximum TTFB & SEO
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
@@ -42,7 +40,7 @@ export default function HomePage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      {/* Hero / Banner Chào mừng Lớp học */}
+      
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-red-950 via-slate-900 to-slate-900 border border-red-500/30 p-8 sm:p-12 mb-10 shadow-2xl">
         <div className="relative z-10 max-w-3xl">
           <div className="inline-flex items-center gap-2.5 bg-red-500/20 border border-red-500/40 rounded-full px-4 py-1.5 text-red-300 text-xs sm:text-sm font-semibold mb-6">
@@ -75,13 +73,11 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Trang trí góc phải */}
         <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none select-none hidden lg:block">
           <div className="w-96 h-96 rounded-full bg-red-600 blur-3xl" />
         </div>
       </div>
 
-      {/* Thống kê nhanh Widget Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
         <div className="bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-2xl p-5 transition-all">
           <div className="flex items-center justify-between text-slate-400 text-sm mb-2">
@@ -124,7 +120,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Danh sách 4 Môn học chính khóa */}
       <section className="mb-14">
         <div className="flex items-center justify-between mb-6">
           <div>
@@ -180,7 +175,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Deadline sắp tới gần nhất (Công khai) */}
       <section className="mb-14">
         <div className="flex items-center justify-between mb-6">
           <div>
@@ -215,7 +209,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Khối hướng dẫn phân quyền & tính năng */}
       <section className="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10">
         <h2 className="text-xl font-bold text-white mb-6 text-center">
           📌 Hướng dẫn sử dụng cổng Deadline của lớp

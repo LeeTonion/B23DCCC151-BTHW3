@@ -1,4 +1,3 @@
-// src/components/DeadlineFilterableList.tsx
 "use client";
 
 import { useState, useMemo } from "react";
@@ -53,7 +52,7 @@ export default function DeadlineFilterableList({
 
   return (
     <div>
-      {/* Interactive filter (use client) */}
+      
       <div className="flex flex-wrap gap-3 mb-6">
         <select
           value={selectedSubject}

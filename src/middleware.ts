@@ -9,7 +9,6 @@ export default auth(function middleware(req) {
   const session = req.auth;
   const role = session?.user?.role;
 
-  // Protect /dashboard - require authenticated user
   if (pathname.startsWith("/dashboard")) {
     if (!session) {
       const callbackUrl = encodeURIComponent(
@@ -22,7 +21,6 @@ export default auth(function middleware(req) {
     }
   }
 
-  // Protect /admin - require admin role
   if (pathname.startsWith("/admin")) {
     if (!session) {
       const callbackUrl = encodeURIComponent(req.nextUrl.pathname);

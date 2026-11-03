@@ -1,4 +1,3 @@
-// src/lib/types.ts
 import "next-auth";
 import type { DefaultSession } from "next-auth";
 
@@ -57,7 +56,6 @@ export interface SafeUser {
   studentId: string;
 }
 
-// Extend NextAuth types
 declare module "next-auth" {
   interface Session {
     user: {

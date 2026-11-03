@@ -1,4 +1,3 @@
-// src/components/AdminDeadlineList.tsx
 "use client";
 
 import { useState, useTransition } from "react";

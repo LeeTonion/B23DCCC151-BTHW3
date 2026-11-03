@@ -1,4 +1,3 @@
-// src/app/api/og/route.tsx
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 
@@ -57,7 +56,7 @@ export async function GET(request: NextRequest) {
           fontFamily: "sans-serif",
         }}
       >
-        {/* Header */}
+        
         <div style={{ display: "flex", alignItems: "center", marginBottom: "40px" }}>
           <div
             style={{
@@ -85,7 +84,6 @@ export async function GET(request: NextRequest) {
           </div>
         </div>
 
-        {/* Title */}
         <div
           style={{
             color: "white",
@@ -100,7 +98,6 @@ export async function GET(request: NextRequest) {
           {title.length > 80 ? title.substring(0, 77) + "..." : title}
         </div>
 
-        {/* Footer */}
         <div
           style={{
             display: "flex",

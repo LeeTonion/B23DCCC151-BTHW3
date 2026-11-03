@@ -1,4 +1,3 @@
-// src/app/(app)/admin/page.tsx - SSR, admin only
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { can } from "@/lib/permissions";
@@ -17,7 +16,6 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminPage() {
-  // Auth check (not relying solely on middleware)
   const session = await auth();
 
   if (!session?.user) {
@@ -42,7 +40,7 @@ export default async function AdminPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Add form */}
+        
         <div>
           <h2 className="text-xl font-bold text-white mb-4">➕ Thêm Deadline</h2>
           <AdminDeadlineForm
@@ -51,7 +49,6 @@ export default async function AdminPage() {
           />
         </div>
 
-        {/* Deadline list */}
         <div>
           <h2 className="text-xl font-bold text-white mb-4">
             📋 Danh sách ({deadlines.length})

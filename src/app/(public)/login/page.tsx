@@ -1,4 +1,3 @@
-// src/app/(public)/login/page.tsx
 "use client";
 
 import { useState, useTransition } from "react";
@@ -60,7 +59,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
-        {/* Logo & Header */}
+        
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600/10 border border-red-500/30 rounded-2xl p-2 mb-4">
             <Image
@@ -78,9 +77,8 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Card Form */}
         <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl">
-          {/* GitHub OAuth Button (Điểm cộng) */}
+          
           <button
             type="button"
             onClick={handleGitHubSignIn}
@@ -101,7 +99,6 @@ export default function LoginPage() {
             <span>Đăng nhập bằng GitHub (OAuth)</span>
           </button>
 
-          {/* Divider */}
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-slate-800" />
@@ -165,7 +162,6 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Quick-fill Demo accounts */}
           <div className="mt-8 pt-6 border-t border-slate-800">
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-semibold text-slate-400">

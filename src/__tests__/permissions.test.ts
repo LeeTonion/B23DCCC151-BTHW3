@@ -1,8 +1,6 @@
-// src/__tests__/permissions.test.ts
 import { can } from "../lib/permissions";
 
 describe("can(role, action) - Permission Matrix", () => {
-  // view_deadline
   describe("view_deadline", () => {
     it("guest can view deadline", () => {
       expect(can("guest", "view_deadline")).toBe(true);
@@ -15,7 +13,6 @@ describe("can(role, action) - Permission Matrix", () => {
     });
   });
 
-  // mark_done
   describe("mark_done", () => {
     it("guest cannot mark done", () => {
       expect(can("guest", "mark_done")).toBe(false);
@@ -28,7 +25,6 @@ describe("can(role, action) - Permission Matrix", () => {
     });
   });
 
-  // add_deadline
   describe("add_deadline", () => {
     it("guest cannot add deadline", () => {
       expect(can("guest", "add_deadline")).toBe(false);
@@ -41,7 +37,6 @@ describe("can(role, action) - Permission Matrix", () => {
     });
   });
 
-  // delete_deadline
   describe("delete_deadline", () => {
     it("guest cannot delete deadline", () => {
       expect(can("guest", "delete_deadline")).toBe(false);

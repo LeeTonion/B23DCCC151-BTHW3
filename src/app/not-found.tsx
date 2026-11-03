@@ -1,4 +1,3 @@
-// src/app/not-found.tsx - Global 404
 import Link from "next/link";
 import type { Metadata } from "next";
 

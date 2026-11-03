@@ -1,4 +1,3 @@
-// src/app/(public)/deadlines/[id]/page.tsx - ISR with on-demand revalidation
 import { getDeadlineById, getDeadlines } from "@/lib/data";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -6,8 +5,6 @@ import CountdownBadge from "@/components/CountdownBadge";
 import DeadlineInteractionSection from "@/components/DeadlineInteractionSection";
 import Link from "next/link";
 
-// ISR: revalidate on-demand via revalidatePath / updateTag
-// Fallback revalidation: 3600 seconds
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
@@ -104,7 +101,6 @@ export default async function DeadlineDetailPage({
     minute: "2-digit",
   });
 
-  // JSON-LD Structured Data - BreadcrumbList
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   const jsonLd = {
     "@context": "https://schema.org",
@@ -133,14 +129,14 @@ export default async function DeadlineDetailPage({
 
   return (
     <>
-      {/* JSON-LD */}
+      
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        {/* Breadcrumb */}
+        
         <nav className="text-sm text-slate-500 mb-6 flex items-center gap-2">
           <Link href="/" className="hover:text-white transition-colors">
             Trang chủ
@@ -153,7 +149,6 @@ export default async function DeadlineDetailPage({
           <span className="text-slate-300 truncate">{deadline.title}</span>
         </nav>
 
-        {/* Header */}
         <div className={`rounded-2xl border p-6 sm:p-8 mb-8 ${pc.bg}`}>
           <div className="flex flex-wrap gap-3 mb-4">
             <span className="bg-slate-800/80 text-slate-300 text-sm px-3 py-1 rounded-full border border-slate-700">
@@ -173,7 +168,6 @@ export default async function DeadlineDetailPage({
             {deadline.title}
           </h1>
 
-          {/* Due date */}
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-2 text-slate-400">
               <span>📅</span>
@@ -183,9 +177,8 @@ export default async function DeadlineDetailPage({
           </div>
         </div>
 
-        {/* Content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main content */}
+          
           <div className="lg:col-span-2">
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-6">
               <h2 className="text-lg font-bold text-white mb-4">📄 Mô tả</h2>
@@ -194,7 +187,6 @@ export default async function DeadlineDetailPage({
               </p>
             </div>
 
-            {/* Subject info */}
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
               <h2 className="text-lg font-bold text-white mb-4">📚 Môn học</h2>
               <Link
@@ -216,7 +208,6 @@ export default async function DeadlineDetailPage({
             </div>
           </div>
 
-          {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-4">
               <h2 className="text-lg font-bold text-white mb-4">🎯 Trạng thái</h2>
@@ -254,7 +245,6 @@ export default async function DeadlineDetailPage({
           </div>
         </div>
 
-        {/* Back */}
         <div className="mt-8">
           <Link
             href="/deadlines"

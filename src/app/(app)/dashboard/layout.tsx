@@ -1,4 +1,3 @@
-// src/app/(app)/dashboard/layout.tsx - Dashboard layout with sidebar
 "use client";
 
 import Link from "next/link";
@@ -20,7 +19,7 @@ export default function DashboardLayout({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex gap-6">
-        {/* Sidebar */}
+        
         <aside className="w-56 flex-shrink-0 hidden md:block">
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 sticky top-24">
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider px-3 mb-2">
@@ -50,7 +49,6 @@ export default function DashboardLayout({
           </div>
         </aside>
 
-        {/* Main content */}
         <div className="flex-1 min-w-0">{children}</div>
       </div>
     </div>

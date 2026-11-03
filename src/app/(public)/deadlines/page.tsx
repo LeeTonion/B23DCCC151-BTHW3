@@ -1,9 +1,7 @@
-// src/app/(public)/deadlines/page.tsx - ISR (revalidate 60s)
 import { getDeadlines, getSubjects } from "@/lib/data";
 import type { Metadata } from "next";
 import DeadlineFilterableList from "@/components/DeadlineFilterableList";
 
-// ISR: revalidate every 60 seconds
 export const revalidate = 60;
 
 export const metadata: Metadata = {

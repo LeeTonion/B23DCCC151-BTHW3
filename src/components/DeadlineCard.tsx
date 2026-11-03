@@ -1,4 +1,3 @@
-// src/components/DeadlineCard.tsx - Server Component
 import Link from "next/link";
 import type { Deadline } from "@/lib/types";
 import CountdownBadge from "./CountdownBadge";
@@ -61,7 +60,7 @@ export default function DeadlineCard({ deadline, isDone = false }: DeadlineCardP
             : `${pc.bg} hover:border-blue-500/50`
         }`}
       >
-        {/* Header */}
+        
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-2 flex-1 min-w-0">
             <span className="text-xl">{icon}</span>
@@ -78,12 +77,10 @@ export default function DeadlineCard({ deadline, isDone = false }: DeadlineCardP
           )}
         </div>
 
-        {/* Description */}
         <p className="text-slate-400 text-sm line-clamp-2 mb-3">
           {deadline.description}
         </p>
 
-        {/* Footer */}
         <div className="flex flex-wrap items-center gap-2 text-xs">
           <span className="text-slate-500">{deadline.subjectCode}</span>
           <span className="text-slate-600">·</span>
