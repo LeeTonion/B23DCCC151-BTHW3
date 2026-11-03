@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "email": "admin@ptit.edu.vn",
+    "password": "$2b$10$FqBIZSH5Nb88IjpZaYyh3.0/zA2zrhyGfbFhibXNwQ2bntKrD46yi",
+    "name": "Lớp trưởng Admin",
+    "role": "admin",
+    "studentId": "B21DCCN001",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "email": "sv@ptit.edu.vn",
+    "password": "$2b$10$rMHK/QUJGlnoj8QYWhQ9NeVMahSGoam4hXEAdrZox6uqf/qETNdOW",
+    "name": "Sinh viên Demo",
+    "role": "user",
+    "studentId": "B21DCCN002",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  }
+]

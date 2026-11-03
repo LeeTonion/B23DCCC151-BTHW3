@@ -1,0 +1,43 @@
+[
+  {
+    "id": "1",
+    "slug": "lap-trinh-web",
+    "name": "Lập trình Web",
+    "code": "IT4409",
+    "description": "Học phần về phát triển ứng dụng web với các công nghệ hiện đại như React, Next.js, Node.js.",
+    "instructor": "TS. Nguyễn Văn An",
+    "color": "#3B82F6",
+    "icon": "🌐"
+  },
+  {
+    "id": "2",
+    "slug": "co-so-du-lieu",
+    "name": "Cơ sở dữ liệu",
+    "code": "IT3090",
+    "description": "Học phần về thiết kế và quản lý cơ sở dữ liệu quan hệ và phi quan hệ.",
+    "instructor": "PGS.TS. Trần Thị Bình",
+    "color": "#10B981",
+    "icon": "🗄️"
+  },
+  {
+    "id": "3",
+    "slug": "mang-may-tinh",
+    "name": "Mạng máy tính",
+    "code": "IT3080",
+    "description": "Học phần về các giao thức mạng, kiến trúc TCP/IP và bảo mật mạng.",
+    "instructor": "TS. Lê Văn Cường",
+    "color": "#F59E0B",
+    "icon": "🔌"
+  },
+  {
+    "id": "4",
+    "slug": "tri-tue-nhan-tao",
+    "name": "Trí tuệ nhân tạo",
+    "code": "IT4210",
+    "description": "Học phần về các thuật toán AI, machine learning và deep learning cơ bản.",
+    "instructor": "GS.TS. Phạm Thị Dung",
+    "color": "#8B5CF6",
+    "icon": "🤖"
+  }
+]
+
