@@ -36,26 +36,9 @@ export default function LoginPage() {
     });
   };
 
-  const handleGitHubSignIn = async () => {
+  const handleGitHubSignIn = () => {
     setIsGitHubPending(true);
-    const hasRealGitHub = process.env.NEXT_PUBLIC_HAS_REAL_GITHUB === "true";
-
-    if (hasRealGitHub) {
-      signIn("github", { callbackUrl });
-    } else {
-      const res = await signIn("credentials", {
-        email: "leetonion@github.com",
-        password: "sv123456",
-        redirect: false,
-      });
-
-      if (res?.ok) {
-        router.push(callbackUrl);
-        router.refresh();
-      } else {
-        signIn("github", { callbackUrl });
-      }
-    }
+    signIn("github", { callbackUrl });
   };
 
   const demoAccounts = [
