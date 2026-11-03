@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,7 +12,6 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
   const [isGitHubPending, setIsGitHubPending] = useState(false);
-  const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
@@ -21,17 +20,20 @@ export default function LoginPage() {
     setError("");
 
     startTransition(async () => {
-      const result = await signIn("credentials", {
-        email,
-        password,
-        redirect: false,
-      });
+      try {
+        const result = await signIn("credentials", {
+          email,
+          password,
+          redirect: false,
+        });
 
-      if (result?.error) {
-        setError("Email hoặc mật khẩu không đúng. Vui lòng thử lại.");
-      } else {
-        router.push(callbackUrl);
-        router.refresh();
+        if (result?.error) {
+          setError("Email hoặc mật khẩu không đúng. Vui lòng thử lại.");
+        } else {
+          window.location.href = callbackUrl;
+        }
+      } catch {
+        setError("Đăng nhập thất bại. Vui lòng thử lại.");
       }
     });
   };

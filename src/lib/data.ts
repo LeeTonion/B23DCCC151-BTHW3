@@ -1,18 +1,40 @@
 import fs from "fs";
 import path from "path";
 import type { Subject, Deadline, User } from "./types";
+import initialSubjects from "../../data/subjects.json";
+import initialDeadlines from "../../data/deadlines.json";
+import initialUsers from "../../data/users.json";
 
 const dataDir = path.join(process.cwd(), "data");
 
+let memorySubjects = [...(initialSubjects as Subject[])];
+let memoryDeadlines = [...(initialDeadlines as Deadline[])];
+let memoryUsers = [...(initialUsers as User[])];
+
 function readJSON<T>(filename: string): T {
-  const filepath = path.join(dataDir, filename);
-  const content = fs.readFileSync(filepath, "utf-8");
-  return JSON.parse(content) as T;
+  try {
+    const filepath = path.join(dataDir, filename);
+    if (fs.existsSync(filepath)) {
+      const content = fs.readFileSync(filepath, "utf-8");
+      return JSON.parse(content) as T;
+    }
+  } catch {}
+
+  if (filename === "subjects.json") return memorySubjects as unknown as T;
+  if (filename === "deadlines.json") return memoryDeadlines as unknown as T;
+  if (filename === "users.json") return memoryUsers as unknown as T;
+  return [] as unknown as T;
 }
 
 function writeJSON<T>(filename: string, data: T): void {
-  const filepath = path.join(dataDir, filename);
-  fs.writeFileSync(filepath, JSON.stringify(data, null, 2), "utf-8");
+  if (filename === "subjects.json") memorySubjects = data as unknown as Subject[];
+  if (filename === "deadlines.json") memoryDeadlines = data as unknown as Deadline[];
+  if (filename === "users.json") memoryUsers = data as unknown as User[];
+
+  try {
+    const filepath = path.join(dataDir, filename);
+    fs.writeFileSync(filepath, JSON.stringify(data, null, 2), "utf-8");
+  } catch {}
 }
 
 export function getSubjects(): Subject[] {
@@ -89,4 +111,3 @@ export function getUserByEmail(email: string): User | undefined {
 export function getUserById(id: string): User | undefined {
   return getUsers().find((u) => u.id === id);
 }
-
