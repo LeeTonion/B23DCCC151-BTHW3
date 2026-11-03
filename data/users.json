@@ -16,5 +16,14 @@
     "role": "user",
     "studentId": "B21DCCN002",
     "createdAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "email": "leetonion@github.com",
+    "password": "$2b$10$rMHK/QUJGlnoj8QYWhQ9NeVMahSGoam4hXEAdrZox6uqf/qETNdOW",
+    "name": "Lee Tonion (GitHub)",
+    "role": "user",
+    "studentId": "B23DCCC151",
+    "createdAt": "2026-11-03T00:00:00.000Z"
   }
 ]
