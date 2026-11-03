@@ -37,22 +37,19 @@ const providers: Provider[] = [
       };
     },
   }),
+  GitHub({
+    clientId: process.env.GITHUB_ID || "Ov23lieUr5By07e6W0er",
+    clientSecret:
+      process.env.GITHUB_SECRET || "e9bb8e63e73853b4a42aa52172931ef2ecd62787",
+  }),
 ];
-
-if (
-  process.env.GITHUB_ID &&
-  process.env.GITHUB_SECRET &&
-  !process.env.GITHUB_ID.includes("XXXX")
-) {
-  providers.push(
-    GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    })
-  );
-}
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
+  trustHost: true,
+  secret:
+    process.env.AUTH_SECRET ||
+    process.env.NEXTAUTH_SECRET ||
+    "ptit-deadline-hub-super-secret-key-2026",
   providers,
 });

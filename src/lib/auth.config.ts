@@ -4,6 +4,7 @@ import type { Role } from "./types";
 export const authConfig: NextAuthConfig = {
   pages: {
     signIn: "/login",
+    error: "/login",
   },
   session: { strategy: "jwt" },
   callbacks: {
@@ -14,7 +15,7 @@ export const authConfig: NextAuthConfig = {
           (user as { role?: Role }).role ||
           (user.email === "admin@ptit.edu.vn" ? "admin" : "user");
         token.studentId =
-          (user as { studentId?: string }).studentId || "B21DCCN_OAUTH";
+          (user as { studentId?: string }).studentId || "B23DCCC151";
       }
       return token;
     },
@@ -29,6 +30,8 @@ export const authConfig: NextAuthConfig = {
   },
   providers: [],
   trustHost: true,
-  secret: process.env.NEXTAUTH_SECRET || "fallback-secret-for-development-only",
+  secret:
+    process.env.AUTH_SECRET ||
+    process.env.NEXTAUTH_SECRET ||
+    "ptit-deadline-hub-super-secret-key-2026",
 };
-
